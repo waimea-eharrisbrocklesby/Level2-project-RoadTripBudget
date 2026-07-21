@@ -3,17 +3,18 @@
 ## Identified Problem or Need
 
 Replace this text with a clearly stated problem or need that exists that your project will attempt to solve / fulfil.
+Planning and bugiting road trips.
 
 
 ## End-User Requirements
 
 Replace this text with a description of your typical end-users and their specific needs / expectations / requirements.
-
+People who travle alot normally young adults 18-25
 
 ## Proposed Solution
 
 Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
-
+A app where you can add activitys keeps track of costs from activitys and fuel and plans a exportable rout that you can follow. also a voting systems to help groups diside their favored activity.
 
 # Relevant Implications
 
