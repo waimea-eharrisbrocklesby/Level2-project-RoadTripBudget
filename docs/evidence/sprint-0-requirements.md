@@ -2,88 +2,82 @@
 
 ## Identified Problem or Need
 
-Replace this text with a clearly stated problem or need that exists that your project will attempt to solve / fulfil.
-Planning and bugiting road trips.
-
+Planning road trips can be difficult, especially when trying to keep track of activities, costs, and the best driving route all in one place.
 
 ## End-User Requirements
 
-Replace this text with a description of your typical end-users and their specific needs / expectations / requirements.
-People who travle alot normally young adults 18-25
+Young adults aged 18-25 who enjoy travelling and want an easy way to plan trips, manage their budget, and organise activities.
 
 ## Proposed Solution
 
-Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
-A app where you can add activitys keeps track of costs from activitys and fuel and plans a exportable rout that you can follow. also a voting systems to help groups diside their favored activity.
+A road trip planning app that lets users add activities and locations, track activity and fuel costs, calculate the shortest route, save multiple trip plans, and export routes to Google Maps.       ----- it might include a voting system so groups can decide on activities together.
 
 # Relevant Implications
 
-## NAME OF IMPLICATION 1
+## Functionality
 
-Replace this text with a clear explanation of what the implication means.
-
-### Relevance to the System
-
-Replace this text with an explanation of why the implication is relevant to this particular project.
-
-### Impact / Considerations
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
-
-
-
-## NAME OF IMPLICATION 2
-
-Replace this text with a clear explanation of what the implication means.
+The system should work reliably and all features should perform as expected.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The app relies on accurate budgeting, route planning, and saving trip data.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will need to test features such as route calculation, budget tracking, and exporting routes to make sure they work correctly.
 
+---
 
+## Usability
 
-## NAME OF IMPLICATION 3
-
-Replace this text with a clear explanation of what the implication means.
+The app should be simple and easy for users to learn and navigate.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The User will need to quickly create and edit road trips without confusion.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will use clear menus, simple navigation, and consistent buttons throughout the app.
 
+---
 
+## Accessibility
 
-## NAME OF IMPLICATION 4
-
-Replace this text with a clear explanation of what the implication means.
+The app should be usable by as many people as possible.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+People may use the app on different devices or have different accessibility needs.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will use readable text, good colour contrast, and make the app work well on mobile devices.
 
+---
 
+## Privacy
 
-## NAME OF IMPLICATION 5
-
-Replace this text with a clear explanation of what the implication means.
+The app should keep users' information safe.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The app stores road trip plans and may store user accounts in the future.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will only collect necessary data and keep any saved information secure.
 
+---
 
+## Future Proofing
+
+The app should be easy to improve with new features later.
+
+### Relevance to the System
+
+More features such as weather, accommodation, or live traffic could be added in the future.
+
+### Impact / Considerations
+
+I will keep the code organised so new features can be added without major changes.
