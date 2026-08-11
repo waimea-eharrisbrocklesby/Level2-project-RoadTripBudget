@@ -1,47 +1,49 @@
 # Sprint 1 - Developing a DB and UI Prototype
 
-
 ## Sprint Goals
 
 Develop a design for the database and a UI prototype that simulates the key functionality of the system. Test and refine the UI so that it can serve as the model for the next phase of development in Sprint 2.
 
 ### Specific Goals
 
-**Edit these goals as needed**
+<!-- Edit these goals as needed -->
 
 - Design the database:
-    - Tables
-    - Fields / types
-    - Primary keys
-    - Default / nullable values
-    - Relationships (foreign keys)
+  - Tables
+  - Fields / types
+  - Primary keys
+  - Default / nullable values
+  - Relationships (foreign keys)
 - Design the UI
-    - Key pages
-    - User interactions and 'flow'
-    - Page layouts / features
-    - Colour palette
-    - Etc.
-
+  - Key pages
+  - User interactions and 'flow'
+  - Page layouts / features
+  - Colour palette
+  - Etc.
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+The database will store the information required for users to create and manage road trip plans. It will need to store information about trips, locations, activities, and costs. The database will use primary keys to identify individual records and foreign keys to create relationships between related data.
 
-![DB Design](sdocs/evidence/screenshots/DB_draft.png)
+The database will also be designed with future proofing in mind so that features such as weather, accommodation, or live traffic can be added later.
 
+![DB Design](screenshots/DB_draft.png)
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
+The user will input information about their road trip, including trip details, locations, activities, activity costs, and fuel costs. This information will be entered through the UI and stored in the database.
 
 ### Required Data Output
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
+The system will display the user's trip plans, locations, activities, activity costs, fuel costs, and estimated total trip cost.
+
+The system will also display the calculated driving route and allow the route to be exported to Google Maps.
 
 ### Required Data Processing
 
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
+The system will process the entered activity and fuel costs to calculate the estimated total cost of the trip.
 
+The system will process the locations entered by the user to calculate the shortest route between locations.
 
 ## UI 'Flow'
 
