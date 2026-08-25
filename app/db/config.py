@@ -15,31 +15,55 @@
 #     SEED_DATA = "INSERT INTO name (...)" or None
 #----------------------------------------------------------------------------
 
-class NoteTable:
+class Trip_Table:
 
     NAME = "note"
 
     SCHEMA = """
         CREATE TABLE note (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            title   TEXT NOT NULL,
-            body    TEXT,
-            pinned  INTEGER DEFAULT 0,
-            created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            id                   INTEGER PRIMARY KEY AUTOINCREMENT,
+            Trip_Name            TEXT NOT NULL,
+            Trip_Budget          INTEGER DEFAULT 0,
+            Trip_Activitys_Code  INTEGER
         )
     """
 
     SEED_DATA = """
-        INSERT INTO note (title, pinned, body)
+        INSERT INTO note (Trip_Name, Trip_Budget, Trip_Activitys_Code)
         VALUES
-            ("Welcome!",      1, "This is a demo application using Flask, Jinja and SQLite."),
-            ("Shopping List", 0, "Milk\nBread\nEggs\nCheese"),
-            ("Meeting Notes", 0, "Discussed project timeline.\n\nAction items:\n- Review design\n- Update docs"),
-            ("Recipe: Pasta", 0, "Ingredients:\n- 500g pasta\n- Tomato sauce\n- Garlic\n\nCook pasta, add sauce, enjoy!"),
-            ("Important!",    1, "Remember to backup your database regularly.")
+    
+    #-------|  Trip_Name  |  Trip_Budget  |  Trip_Activitys_Code  |-------
+            ("Demo_Trip",       800,                  1),
+            ("Demo_Trip2",      1000,                 2),
+            ("Demo_Trip3",      500,                  3)
     """
 
 # Add more table classes here...
+class Activitys_Table:
+
+    NAME = "Activitys"
+
+    SCHEMA = """
+        CREATE TABLE Activitys (
+            Code                     INTEGER PRIMARY KEY AUTOINCREMENT,
+            Activity_Name            INTEGER DEFAULT 0,
+            Activity_Location        TEXT NOT NULL,
+            Activity_Houers          INTEGER,
+            Activity_Price           INTEGER DEFAULT 0,
+            Activity_info            TEXT,
+            Activity_IMG             TEXT
+        )
+    """
+
+    SEED_DATA = """
+        INSERT INTO Activitys (Code, Activity_Name, Activity_Location, Activity_Houers, Activity_Price, Activity_info, Activity_IMG)
+        VALUES
+    
+    #-------|  Code  |  Activity_Name  |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info  |  Activity_IMG  |-------
+            (1,        "Demo_Activity",    "Demo_Location",           2,                  100,          "Demo_Info",     "Demo_IMG"),
+            (2,        "Demo_Activity2",   "Demo_Location2",          3,                  150,          "Demo_Info2",    "Demo_IMG2"),
+            (3,        "Demo_Activity3",   "Demo_Location3",          4,                  200,          "Demo_Info3",    "Demo_IMG3")
+    """
 
 
 
@@ -59,7 +83,8 @@ class NoteTable:
 #----------------------------------------------------------------------------
 
 TABLES = [
-    NoteTable,
+    Trip_Table,
+    Activitys_Table,
     # Add more tables here...
 ]
 
