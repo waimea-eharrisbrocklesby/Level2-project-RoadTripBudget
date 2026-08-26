@@ -33,9 +33,9 @@ class Trip_Table:
         VALUES
     
     #-------|  Trip_Name  |  Trip_Budget  |  Trip_Activitys_Code  |-------
-            ("Demo_Trip",       800,                  1),
-            ("Demo_Trip2",      1000,                 2),
-            ("Demo_Trip3",      500,                  3)
+        (     "Demo_Trip",       800,                  1            ),
+        (     "Demo_Trip2",      1000,                 2            ),
+        (     "Demo_Trip3",      500,                  3            )
     """
 
 # Add more table classes here...
@@ -60,9 +60,9 @@ class Activitys_Table:
         VALUES
     
     #-------|  Code  |  Activity_Name  |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info  |  Activity_IMG  |-------
-            (1,        "Demo_Activity",    "Demo_Location",           2,                  100,          "Demo_Info",     "Demo_IMG"),
-            (2,        "Demo_Activity2",   "Demo_Location2",          3,                  150,          "Demo_Info2",    "Demo_IMG2"),
-            (3,        "Demo_Activity3",   "Demo_Location3",          4,                  200,          "Demo_Info3",    "Demo_IMG3")
+        (      1,      "Demo_Activity",    "Demo_Location",           2,                  100,          "Demo_Info",     "Demo_IMG"      ),
+        (      2,      "Demo_Activity2",   "Demo_Location2",          3,                  150,          "Demo_Info2",    "Demo_IMG2"     ),
+        (      3,      "Demo_Activity3",   "Demo_Location3",          4,                  200,          "Demo_Info3",    "Demo_IMG3"     )
     """
 
 
@@ -78,7 +78,8 @@ class Activitys_Table:
 #     etc.
 # ]
 #
-# Note: The table order is important - Create the tables that have
+# Note: The table o
+# rder is important - Create the tables that have
 # foreign keys *after* the tables they link to have been created
 #----------------------------------------------------------------------------
 
