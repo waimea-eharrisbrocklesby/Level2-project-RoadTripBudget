@@ -17,10 +17,10 @@
 
 class Trip_Table:
 
-    NAME = "note"
+    NAME = "trips"
 
     SCHEMA = """
-        CREATE TABLE note (
+        CREATE TABLE trips (
             id                   INTEGER PRIMARY KEY AUTOINCREMENT,
             Trip_Name            TEXT NOT NULL,
             Trip_Budget          INTEGER DEFAULT 0,
@@ -29,10 +29,10 @@ class Trip_Table:
     """
 
     SEED_DATA = """
-        INSERT INTO note (Trip_Name, Trip_Budget, Trip_Activitys_Code)
+        INSERT INTO trips (Trip_Name, Trip_Budget, Trip_Activitys_Code)
         VALUES
     
-    #-------|  Trip_Name  |  Trip_Budget  |  Trip_Activitys_Code  |-------
+    -------|  Trip_Name  |  Trip_Budget  |  Trip_Activitys_Code  |-------
         (     "Demo_Trip",       800,                  1            ),
         (     "Demo_Trip2",      1000,                 2            ),
         (     "Demo_Trip3",      500,                  3            )
@@ -59,7 +59,7 @@ class Activitys_Table:
         INSERT INTO Activitys (Code, Activity_Name, Activity_Location, Activity_Houers, Activity_Price, Activity_info, Activity_IMG)
         VALUES
     
-    #-------|  Code  |  Activity_Name  |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info  |  Activity_IMG  |-------
+    -------|  Code  |  Activity_Name  |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info  |  Activity_IMG  |-------
         (      1,      "Demo_Activity",    "Demo_Location",           2,                  100,          "Demo_Info",     "Demo_IMG"      ),
         (      2,      "Demo_Activity2",   "Demo_Location2",          3,                  150,          "Demo_Info2",    "Demo_IMG2"     ),
         (      3,      "Demo_Activity3",   "Demo_Location3",          4,                  200,          "Demo_Info3",    "Demo_IMG3"     )

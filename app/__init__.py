@@ -21,27 +21,43 @@ app = Flask(__name__)
 #===========================================================
 
 #-----------------------------------------------------------
-# Home page - Show all notes
+# Home page - Show all trips
 #-----------------------------------------------------------
 @app.get("/")
-def show_notes():
+def show_trips():
     with connect_db() as db:
         sql = """
-            SELECT id, title, body, pinned, created
-            FROM note
-            ORDER BY pinned DESC, created DESC
+            SELECT id, Trip_Name, Trip_Budget, Trip_Activitys_Code
+            FROM trips
+            ORDER BY id
         """
-        params = ()
-        notes = db.execute(sql, params).fetchall()
 
-        flash("Test message")
-        flash("Test SUCCESS message", "success")
-        flash("Test INFO message", "info")
-        flash("Test WARNING message", "warning")
-        flash("Test ERROR message", "error")
+        trips = db.execute(sql).fetchall()
 
-        return render_template("pages/note_list.jinja", notes=notes)
+        return render_template(
+            "pages/_Trips.jinja",
+            trips=trips
+        )
 
+
+#-----------------------------------------------------------
+# Trips page
+#-----------------------------------------------------------
+@app.get("/Trips")
+def trips_page():
+    with connect_db() as db:
+        sql = """
+            SELECT id, Trip_Name, Trip_Budget, Trip_Activitys_Code
+            FROM trips
+            ORDER BY id
+        """
+
+        trips = db.execute(sql).fetchall()
+
+        return render_template(
+            "pages/_Trips.jinja",
+            trips=trips
+        )
 
 #===========================================================
 # Configure the app
