@@ -1,0 +1,29 @@
+{% extends 'pages/_base.jinja' %}
+
+{% block content %}
+
+```
+<h2>Road Trips:</h2>
+
+<section id="trips">
+
+    {% for trip in notes %}
+
+        <div class="trip">
+
+            <h3>{{ trip.Trip_Name }}</h3>
+
+            <p>Budget: ${{ trip.Trip_Budget }}</p>
+
+        </div>
+
+    {% else %}
+
+        <p>No Road Trips!</p>
+
+    {% endfor %}
+
+</section>
+```
+
+{% endblock %}
