@@ -59,6 +59,37 @@ def trips_page():
             trips=trips
         )
 
+
+
+#-----------------------------------------------------------
+# Trips page
+#-----------------------------------------------------------
+@app.get("/trip/<int:trip_id>")
+def view_trip(trip_id):
+
+    with connect_db() as db:
+
+        trip = db.execute("""
+            SELECT *
+            FROM trips
+            WHERE id = ?
+        """, (trip_id,)).fetchone()
+
+        if trip is None:
+            return "Trip not found", 404
+
+        activities = db.execute("""
+            SELECT *
+            FROM Activitys
+            WHERE Code = ?
+        """, (trip["Trip_Activitys_Code"],)).fetchall()
+
+        return render_template(
+            "pages/_Trip.jinja",
+            trip=trip,
+            activities=activities
+        )
+
 #===========================================================
 # Configure the app
 #===========================================================

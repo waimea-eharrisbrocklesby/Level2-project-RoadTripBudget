@@ -45,7 +45,7 @@ class Activitys_Table:
 
     SCHEMA = """
         CREATE TABLE Activitys (
-            Code                     INTEGER PRIMARY KEY AUTOINCREMENT,
+            Code                     INTEGER,
             Activity_Name            INTEGER DEFAULT 0,
             Activity_Location        TEXT NOT NULL,
             Activity_Houers          INTEGER,
@@ -56,13 +56,26 @@ class Activitys_Table:
     """
 
     SEED_DATA = """
-        INSERT INTO Activitys (Code, Activity_Name, Activity_Location, Activity_Houers, Activity_Price, Activity_info, Activity_IMG)
+        INSERT INTO Activitys 
+        (Code, Activity_Name, Activity_Location, Activity_Houers, Activity_Price, Activity_info, Activity_IMG)
         VALUES
-    
-    -------|  Code  |  Activity_Name  |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info  |  Activity_IMG  |-------
-        (      1,      "Demo_Activity",    "Demo_Location",           2,                  100,          "Demo_Info",     "Demo_IMG"      ),
-        (      2,      "Demo_Activity2",   "Demo_Location2",          3,                  150,          "Demo_Info2",    "Demo_IMG2"     ),
-        (      3,      "Demo_Activity3",   "Demo_Location3",          4,                  200,          "Demo_Info3",    "Demo_IMG3"     )
+
+        -------|  Code  |  Activity_Name       |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info        |  Activity_IMG  |-------
+
+        (   3,   "Kayaking",             "Abel Tasman",        3,   120,   "Explore the coastline by kayak.",        "kayaking.jpg"       ),
+        (   3,   "Beach Walk",            "Torrent Bay",        2,    20,   "Walk along the beautiful beach.",         "beach_walk.jpg"     ),
+        (   3,   "Water Taxi",            "Marahau",            1,    80,   "Take a water taxi along the coast.",      "water_taxi.jpg"     ),
+        (   3,   "Forest Hike",           "Abel Tasman",        4,    35,   "Hike through native New Zealand forest.", "forest_hike.jpg"   ),
+
+        (   2,   "Mountain Biking",       "Nelson",             3,    90,   "Ride through scenic mountain trails.",    "mountain_biking.jpg" ),
+        (   2,   "Ziplining",             "Nelson",             2,   110,   "Fly through the forest canopy.",           "ziplining.jpg"      ),
+        (   2,   "Rock Climbing",         "Nelson",             3,    75,   "Try climbing some local rock faces.",     "rock_climbing.jpg"  ),
+        (   2,   "Quad Biking",           "Nelson",             2,   140,   "Explore the countryside on a quad bike.", "quad_biking.jpg"    ),
+
+        (   1,   "City Tour",             "Nelson",             2,    30,   "Explore the main sights around Nelson.",  "city_tour.jpg"      ),
+        (   1,   "Museum Visit",          "Nelson",             2,    15,   "Learn about local history and culture.",  "museum.jpg"         ),
+        (   1,   "Botanical Walk",        "Nelson",             1,    10,   "Take a relaxing walk through gardens.",   "botanical_walk.jpg" ),
+        (   1,   "Cafe Tour",             "Nelson",             3,    45,   "Visit some of Nelson's best cafes.",      "cafe_tour.jpg"      )
     """
 
 

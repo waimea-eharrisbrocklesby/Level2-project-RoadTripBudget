@@ -1,0 +1,37 @@
+{% extends 'pages/_base.jinja' %}
+
+{% block content %}
+
+<h2>{{ trip.Trip_Name }}</h2>
+
+<p>Budget: ${{ trip.Trip_Budget }}</p>
+
+<h3>Activities:</h3>
+
+{% for activity in activities %}
+
+
+<div class="activity">
+
+    <h4>{{ activity.Activity_Name }}</h4>
+
+    <p>Location: {{ activity.Activity_Location }}</p>
+
+    <p>Hours: {{ activity.Activity_Houers }}</p>
+
+    <p>Price: ${{ activity.Activity_Price }}</p>
+
+    <p>{{ activity.Activity_info }}</p>
+
+</div>
+
+
+{% else %}
+
+
+<p>No activities for this trip.</p>
+
+
+{% endfor %}
+
+{% endblock %}
