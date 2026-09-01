@@ -1,0 +1,43 @@
+{% extends 'pages/_base.jinja' %}
+
+{% block content %}
+
+<h2>Add Activity</h2>
+
+<form method="POST">
+
+<label for="name">Activity Name:</label>
+<input type="text" id="name" name="Activity_Name" required>
+
+<br><br>
+
+<label for="location">Location:</label>
+<input type="text" id="location" name="Activity_Location" required>
+
+<br><br>
+
+<label for="hours">Hours:</label>
+<input type="number" id="hours" name="Activity_Houers">
+
+<br><br>
+
+<label for="price">Price:</label>
+<input type="number" id="price" name="Activity_Price">
+
+<br><br>
+
+<label for="info">Information:</label>
+<textarea id="info" name="Activity_info"></textarea>
+
+<br><br>
+
+<label for="image">Image:</label>
+<input type="text" id="image" name="Activity_IMG">
+
+<br><br>
+
+<button type="submit">Add Activity</button>
+
+</form>
+
+{% endblock %}

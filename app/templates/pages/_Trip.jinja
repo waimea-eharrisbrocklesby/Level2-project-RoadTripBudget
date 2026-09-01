@@ -1,6 +1,10 @@
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
+<header>
+    <a href="/">Edit</a>
+    <a href="/add_activity/{{ trip.id }}">Add Activity</a>
+</header>
 
 <h2>{{ trip.Trip_Name }}</h2>
 

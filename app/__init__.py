@@ -90,6 +90,49 @@ def view_trip(trip_id):
             activities=activities
         )
 
+
+
+#-----------------------------------------------------------
+# Add Activity
+#-----------------------------------------------------------
+@app.route("/add_activity", methods=["GET", "POST"])
+def add_activity():
+
+    if request.method == "POST":
+
+        activity_name = request.form["Activity_Name"]
+        activity_location = request.form["Activity_Location"]
+        activity_hours = request.form["Activity_Houers"]
+        activity_price = request.form["Activity_Price"]
+        activity_info = request.form["Activity_info"]
+        activity_img = request.form["Activity_IMG"]
+
+        with connect_db() as db:
+
+            db.execute("""
+                INSERT INTO Activitys
+                (
+                    Activity_Name,
+                    Activity_Location,
+                    Activity_Houers,
+                    Activity_Price
+                    Activity_info,
+                    Activity_IMG
+                )
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, (
+                activity_name,
+                activity_location,
+                activity_hours,
+                activity_price,
+                activity_info,
+                activity_img
+            ))
+
+        return redirect("/")
+
+    return render_template("pages/_Activity_Form.jinja")
+
 #===========================================================
 # Configure the app
 #===========================================================
