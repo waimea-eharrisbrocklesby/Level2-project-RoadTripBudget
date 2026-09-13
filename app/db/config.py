@@ -32,7 +32,7 @@ class Trip_Table:
         INSERT INTO trips (Trip_Name, Trip_Budget, Trip_Activitys_Code)
         VALUES
     
-    -------|  Trip_Name  |  Trip_Budget  |  Trip_Activitys_Code  |-------
+    -------|  Trip_Name     |  Trip_Budget  |  Trip_Activitys_Code |-------
         (     "Demo_Trip",       800,                  1            ),
         (     "Demo_Trip2",      1000,                 2            ),
         (     "Demo_Trip3",      500,                  3            )
