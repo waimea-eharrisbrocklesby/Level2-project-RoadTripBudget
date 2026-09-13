@@ -6,29 +6,31 @@
     <a href="/add_activity/{{ trip.id }}">Add Activity</a>
 </header>
 
-<h2>{{ trip.Trip_Name }}</h2>
+<div class="trip-details">
 
-<p>Budget: ${{ trip.Trip_Budget }}</p>
+    <h2>{{ trip.Trip_Name }}</h2>
 
-<h3>Activities:</h3>
+    <p>Budget: ${{ trip.Trip_Budget }}</p>
 
-{% for activity in activities %}
+    <h3>Activities:</h3>
+
+    {% for activity in activities %}
 
 
-<div class="activity">
+    <div class="activity">
 
-    <h4>{{ activity.Activity_Name }}</h4>
+        <h4>{{ activity.Activity_Name }}</h4>
 
-    <p>Location: {{ activity.Activity_Location }}</p>
+        <p>Location: {{ activity.Activity_Location }}</p>
 
-    <p>Hours: {{ activity.Activity_Houers }}</p>
+        <p>Hours: {{ activity.Activity_Houers }}</p>
 
-    <p>Price: ${{ activity.Activity_Price }}</p>
+        <p>Price: ${{ activity.Activity_Price }}</p>
 
-    <p>{{ activity.Activity_info }}</p>
+        <p>{{ activity.Activity_info }}</p>
 
+    </div>
 </div>
-
 
 {% else %}
 
