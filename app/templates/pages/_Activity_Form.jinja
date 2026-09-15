@@ -1,43 +1,45 @@
+```jinja
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
 
 <h2>Add Activity</h2>
 
-<form method="POST">
+<form method="POST" action="/add_activity/{{ trip_id }}">
 
-<label for="name">Activity Name:</label>
-<input type="text" id="name" name="Activity_Name" required>
+    <label for="name">Activity Name:</label>
+    <input type="text" id="name" name="Activity_Name" required>
 
-<br><br>
+    <br><br>
 
-<label for="location">Location:</label>
-<input type="text" id="location" name="Activity_Location" required>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="Activity_Location" required>
 
-<br><br>
+    <br><br>
 
-<label for="hours">Hours:</label>
-<input type="number" id="hours" name="Activity_Houers">
+    <label for="hours">Hours:</label>
+    <input type="number" id="hours" name="Activity_Houers">
 
-<br><br>
+    <br><br>
 
-<label for="price">Price:</label>
-<input type="number" id="price" name="Activity_Price">
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="Activity_Price">
 
-<br><br>
+    <br><br>
 
-<label for="info">Information:</label>
-<textarea id="info" name="Activity_info"></textarea>
+    <label for="info">Information:</label>
+    <textarea id="info" name="Activity_info"></textarea>
 
-<br><br>
+    <br><br>
 
-<label for="image">Image:</label>
-<input type="text" id="image" name="Activity_IMG">
+    <label for="image">Image:</label>
+    <input type="text" id="image" name="Activity_IMG">
 
-<br><br>
+    <br><br>
 
-<button type="submit">Add Activity</button>
+    <button type="submit">Add Activity</button>
 
 </form>
 
 {% endblock %}
+```

@@ -1,9 +1,15 @@
+```jinja
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
+
 <header>
     <a href="/">Edit</a>
     <a href="/add_activity/{{ trip.id }}">Add Activity</a>
+
+    <form method="POST" action="/delete_trip/{{ trip.id }}" style="display:inline;">
+        <button type="submit">Delete Trip</button>
+    </form>
 </header>
 
 <div class="trip-details">
@@ -15,7 +21,6 @@
     <h3>Activities:</h3>
 
     {% for activity in activities %}
-
 
     <div class="activity">
 
@@ -29,15 +34,19 @@
 
         <p>{{ activity.Activity_info }}</p>
 
+        <form method="POST" action="/delete_activity/{{ activity.id }}">
+            <button type="submit">Delete Activity</button>
+        </form>
+
     </div>
+
+    {% else %}
+
+    <p>No activities for this trip.</p>
+
+    {% endfor %}
+
 </div>
 
-{% else %}
-
-
-<p>No activities for this trip.</p>
-
-
-{% endfor %}
-
 {% endblock %}
+```

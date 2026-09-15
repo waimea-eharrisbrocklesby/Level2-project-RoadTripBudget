@@ -45,6 +45,7 @@ class Activitys_Table:
 
     SCHEMA = """
         CREATE TABLE Activitys (
+            id                       INTEGER PRIMARY KEY AUTOINCREMENT,
             Code                     INTEGER,
             Activity_Name            INTEGER DEFAULT 0,
             Activity_Location        TEXT NOT NULL,
