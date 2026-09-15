@@ -17,6 +17,10 @@
 
             <a href="/trip/{{ trip.id }}">View Trip ></a>
 
+            <form method="POST" action="/delete_trip/{{ trip.id }}" style="display:inline;">
+                <button type="submit">Delete Trip</button>
+            </form>
+
         </div>
 
     {% else %}
@@ -24,6 +28,10 @@
         <p>No Road Trips!</p>
 
     {% endfor %}
+
+        <center>
+            <a href="/add_trip">Add Trip</a>
+        </center>
 
 </section>
 

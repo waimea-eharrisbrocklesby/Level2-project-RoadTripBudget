@@ -24,7 +24,7 @@ class Trip_Table:
             id                   INTEGER PRIMARY KEY AUTOINCREMENT,
             Trip_Name            TEXT NOT NULL,
             Trip_Budget          INTEGER DEFAULT 0,
-            Trip_Activitys_Code  INTEGER
+            Trip_Activitys_Code  INTEGER 
         )
     """
 
@@ -38,7 +38,7 @@ class Trip_Table:
         (     "Demo_Trip3",      500,                  3            )
     """
 
-# Add more table classes here...
+# Add more table classes here...Name
 class Activitys_Table:
 
     NAME = "Activitys"

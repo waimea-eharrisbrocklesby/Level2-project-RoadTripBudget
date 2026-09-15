@@ -102,7 +102,7 @@ main > h2 {
 #trips {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     align-items: start;
 
     .trip {
