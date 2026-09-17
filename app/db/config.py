@@ -24,8 +24,9 @@ class Trip_Table:
             id                   INTEGER PRIMARY KEY AUTOINCREMENT,
             Trip_Name            TEXT NOT NULL,
             Trip_Budget          INTEGER DEFAULT 0,
-            Trip_Activitys_Code  INTEGER 
-        )
+            Trip_Activitys_Code  TEXT DEFAULT (lower(hex(randomblob(4))))
+        );
+        
     """
 
     SEED_DATA = """
@@ -33,9 +34,9 @@ class Trip_Table:
         VALUES
     
     -------|  Trip_Name     |  Trip_Budget  |  Trip_Activitys_Code |-------
-        (     "Demo_Trip",       800,                  1            ),
-        (     "Demo_Trip2",      1000,                 2            ),
-        (     "Demo_Trip3",      500,                  3            )
+        (     "Demo_Trip",       800,                "abc"         ),
+        (     "Demo_Trip2",      1000,               "def"         ),
+        (     "Demo_Trip3",      500,                "ghi"         )
     """
 
 # Add more table classes here...Name
@@ -46,8 +47,8 @@ class Activitys_Table:
     SCHEMA = """
         CREATE TABLE Activitys (
             id                       INTEGER PRIMARY KEY AUTOINCREMENT,
-            Code                     INTEGER,
-            Activity_Name            INTEGER DEFAULT 0,
+            Code                     TEXT NOT NULL,
+            Activity_Name            TEXT NOT NULL,
             Activity_Location        TEXT NOT NULL,
             Activity_Houers          INTEGER,
             Activity_Price           INTEGER DEFAULT 0,
@@ -63,20 +64,20 @@ class Activitys_Table:
 
         -------|  Code  |  Activity_Name       |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info                           |  Activity_IMG          |-------
 
-        (          3,       "Kayaking",             "Abel Tasman",            3,                120,          "Explore the coastline by kayak.",        "kayaking.jpg"             ),
-        (          3,       "Beach Walk",            "Torrent Bay",           2,                20,           "Walk along the beautiful beach.",         "beach_walk.jpg"          ),
-        (          3,       "Water Taxi",            "Marahau",               1,                80,           "Take a water taxi along the coast.",      "water_taxi.jpg"          ),
-        (          3,       "Forest Hike",           "Abel Tasman",           4,                35,           "Hike through native New Zealand forest.", "forest_hike.jpg"         ),
+        (          "abc",       "Kayaking",             "Abel Tasman",            3,                120,          "Explore the coastline by kayak.",        "kayaking.jpg"             ),
+        (          "abc",       "Beach Walk",            "Torrent Bay",           2,                20,           "Walk along the beautiful beach.",         "beach_walk.jpg"          ),
+        (          "abc",       "Water Taxi",            "Marahau",               1,                80,           "Take a water taxi along the coast.",      "water_taxi.jpg"          ),
+        (          "abc",       "Forest Hike",           "Abel Tasman",           4,                35,           "Hike through native New Zealand forest.", "forest_hike.jpg"         ),
 
-        (          2,       "Mountain Biking",       "Nelson",                3,                90,           "Ride through scenic mountain trails.",    "mountain_biking.jpg"     ),
-        (          2,       "Ziplining",             "Nelson",                2,               110,           "Fly through the forest canopy.",           "ziplining.jpg"          ),
-        (          2,       "Rock Climbing",         "Nelson",                3,                75,           "Try climbing some local rock faces.",     "rock_climbing.jpg"       ),
-        (          2,       "Quad Biking",           "Nelson",                2,               140,           "Explore the countryside on a quad bike.", "quad_biking.jpg"         ),
+        (          "def",       "Mountain Biking",       "Nelson",                3,                90,           "Ride through scenic mountain trails.",    "mountain_biking.jpg"     ),
+        (          "def",       "Ziplining",             "Nelson",                2,               110,           "Fly through the forest canopy.",           "ziplining.jpg"          ),
+        (          "def",       "Rock Climbing",         "Nelson",                3,                75,           "Try climbing some local rock faces.",     "rock_climbing.jpg"       ),
+        (          "def",       "Quad Biking",           "Nelson",                2,               140,           "Explore the countryside on a quad bike.", "quad_biking.jpg"         ),
 
-        (          1,       "City Tour",             "Nelson",                2,                30,           "Explore the main sights around Nelson.",  "city_tour.jpg"           ),
-        (          1,       "Museum Visit",          "Nelson",                2,                15,           "Learn about local history and culture.",  "museum.jpg"              ),
-        (          1,       "Botanical Walk",        "Nelson",                1,                10,           "Take a relaxing walk through gardens.",   "botanical_walk.jpg"      ),
-        (          1,       "Cafe Tour",             "Nelson",                3,                45,           "Visit some of Nelson's best cafes.",      "cafe_tour.jpg"           )
+        (          "ghi",       "City Tour",             "Nelson",                2,                30,           "Explore the main sights around Nelson.",  "city_tour.jpg"           ),
+        (          "ghi",       "Museum Visit",          "Nelson",                2,                15,           "Learn about local history and culture.",  "museum.jpg"              ),
+        (          "ghi",       "Botanical Walk",        "Nelson",                1,                10,           "Take a relaxing walk through gardens.",   "botanical_walk.jpg"      ),
+        (          "ghi",       "Cafe Tour",             "Nelson",                3,                45,           "Visit some of Nelson's best cafes.",      "cafe_tour.jpg"           )
     """
 
 

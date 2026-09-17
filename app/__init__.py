@@ -97,20 +97,23 @@ def view_trip(trip_id):
 #=============================================================
 @app.route("/add_trip", methods=["GET", "POST"])
 def add_trip():
-    
+
     if request.method == "POST":
 
         trip_name = request.form["Trip_Name"]
         trip_budget = request.form["Trip_Budget"]
 
-
         with connect_db() as db:
             db.execute("""
-                INSERT INTO trips (Trip_Name, Trip_Budget, Trip_Activitys_Code)
-                VALUES (?, ?, ?)
-            """, (trip_name, trip_budget, trip_activitys_code))
+                INSERT INTO trips
+                (
+                    Trip_Name,
+                    Trip_Budget
+                )
+                VALUES (?, ?)
+            """, (trip_name, trip_budget))
 
-        return redirect("/")
+        return redirect("/Trips")
 
     return render_template("pages/_Trip_Form.jinja")
 

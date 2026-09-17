@@ -1,25 +1,25 @@
-```jinja
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
 
-<h2>Add Activity</h2>
+<h2>Add Trip</h2>
 
-<form method="POST" action="/add_activity/{{ trip_id }}">
+<form method="POST" action="/add_trip">
 
-    <label for="name">Trip Name:</label>
-    <input type="text" id="name" name="Trip_Name" required>
 
-    <br><br>
+<label for="trip_name">Trip Name:</label>
+<input type="text" id="trip_name" name="Trip_Name" required>
 
-    <label for="name">Trip Budget:</label>
-    <input type="number" id="name" name="Trip_Budget" required>
+<br><br>
 
-    <br><br>
+<label for="trip_budget">Trip Budget:</label>
+<input type="number" id="trip_budget" name="Trip_Budget" min="0" required>
 
-    <button type="submit">Add Activity</button>
+<br><br>
+
+<button type="submit">Add Trip</button>
+
 
 </form>
 
 {% endblock %}
-```
