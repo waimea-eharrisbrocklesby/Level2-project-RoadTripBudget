@@ -1,4 +1,4 @@
-
+```jinja
 {% extends 'pages/_base.jinja' %}
 
 {% block content %}
@@ -17,6 +17,22 @@
     <h2>{{ trip.Trip_Name }}</h2>
 
     <p>Budget: ${{ trip.Trip_Budget }}</p>
+
+    {% set namespace = namespace(total_cost=0) %}
+
+    {% for activity in activities %}
+        {% set namespace.total_cost = namespace.total_cost + (activity.Activity_Price | float) %}
+    {% endfor %}
+
+    <h3>Budget Summary</h3>
+
+    <div style="font-size: 32px; font-weight: bold; margin: 20px 0;">
+        ${{ namespace.total_cost }} / ${{ trip.Trip_Budget }}
+    </div>
+
+    <p>Total Activity Costs: ${{ namespace.total_cost }}</p>
+
+    <p>Remaining Budget: ${{ (trip.Trip_Budget | float) - namespace.total_cost }}</p>
 
     <h3>Activities:</h3>
 
