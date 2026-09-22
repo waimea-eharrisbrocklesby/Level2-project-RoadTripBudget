@@ -62,24 +62,23 @@ class Activitys_Table:
         (Code, Activity_Name, Activity_Location, Activity_Houers, Activity_Price, Activity_info, Activity_IMG)
         VALUES
 
-        -------|  Code  |  Activity_Name       |  Activity_Location  |  Activity_Houers  |  Activity_Price  |  Activity_info                           |  Activity_IMG          |-------
+        -------|  Code  |  Activity_Name       |  Activity_Location        |  Activity_Houers  |  Activity_Price  |  Activity_info                           |  Activity_IMG            |-------
 
-        (          "abc",       "Kayaking",             "Abel Tasman",            3,                120,          "Explore the coastline by kayak.",        "kayaking.jpg"             ),
-        (          "abc",       "Beach Walk",            "Torrent Bay",           2,                20,           "Walk along the beautiful beach.",         "beach_walk.jpg"          ),
-        (          "abc",       "Water Taxi",            "Marahau",               1,                80,           "Take a water taxi along the coast.",      "water_taxi.jpg"          ),
-        (          "abc",       "Forest Hike",           "Abel Tasman",           4,                35,           "Hike through native New Zealand forest.", "forest_hike.jpg"         ),
+        (        "abc",     "Kayaking",           "-40.8895, 173.0096",             3,                 120,          "Explore the coastline by kayak.",           "kayaking.jpg"        ),
+        (        "abc",     "Beach Walk",         "-40.8827, 173.0129",             2,                 20,           "Walk along the beautiful beach.",           "beach_walk.jpg"      ),
+        (        "abc",     "Water Taxi",         "-41.1896, 173.0091",             1,                 80,           "Take a water taxi along the coast.",        "water_taxi.jpg"      ),
+        (        "abc",     "Forest Hike",        "-40.9002, 173.0215",             4,                 35,           "Hike through native New Zealand forest.",   "forest_hike.jpg"     ),
 
-        (          "def",       "Mountain Biking",       "Nelson",                3,                90,           "Ride through scenic mountain trails.",    "mountain_biking.jpg"     ),
-        (          "def",       "Ziplining",             "Nelson",                2,               110,           "Fly through the forest canopy.",           "ziplining.jpg"          ),
-        (          "def",       "Rock Climbing",         "Nelson",                3,                75,           "Try climbing some local rock faces.",     "rock_climbing.jpg"       ),
-        (          "def",       "Quad Biking",           "Nelson",                2,               140,           "Explore the countryside on a quad bike.", "quad_biking.jpg"         ),
+        (        "def",     "Mountain Biking",    "-41.3038, 173.2450",             3,                 90,           "Ride through scenic mountain trails.",      "mountain_biking.jpg" ),
+        (        "def",     "Ziplining",          "-41.3150, 173.2680",             2,                 110,          "Fly through the forest canopy.",            "ziplining.jpg"       ),
+        (        "def",     "Rock Climbing",      "-41.2900, 173.2600",             3,                 75,           "Try climbing some local rock faces.",       "rock_climbing.jpg"   ),
+        (        "def",     "Quad Biking",        "-41.3350, 173.2700",             2,                 140,          "Explore the countryside on a quad bike.",   "quad_biking.jpg"     ),
 
-        (          "ghi",       "City Tour",             "Nelson",                2,                30,           "Explore the main sights around Nelson.",  "city_tour.jpg"           ),
-        (          "ghi",       "Museum Visit",          "Nelson",                2,                15,           "Learn about local history and culture.",  "museum.jpg"              ),
-        (          "ghi",       "Botanical Walk",        "Nelson",                1,                10,           "Take a relaxing walk through gardens.",   "botanical_walk.jpg"      ),
-        (          "ghi",       "Cafe Tour",             "Nelson",                3,                45,           "Visit some of Nelson's best cafes.",      "cafe_tour.jpg"           )
+        (        "ghi",     "City Tour",          "-41.2706, 173.2837",             2,                 30,           "Explore the main sights around Nelson.",    "city_tour.jpg"       ),
+        (        "ghi",     "Museum Visit",       "-41.2720, 173.2845",             2,                 15,           "Learn about local history and culture.",    "museum.jpg"          ),
+        (        "ghi",     "Botanical Walk",     "-41.2675, 173.2990",             1,                 10,           "Take a relaxing walk through gardens.",     "botanical_walk.jpg"  ),
+        (        "ghi",     "Cafe Tour",          "-41.2730, 173.2840",             3,                 45,           "Visit some of Nelson's best cafes.",        "cafe_tour.jpg"       )
     """
-
 
 
 #----------------------------------------------------------------------------

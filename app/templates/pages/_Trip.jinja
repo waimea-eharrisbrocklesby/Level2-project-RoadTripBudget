@@ -34,6 +34,75 @@
 
     <p>Remaining Budget: ${{ (trip.Trip_Budget | float) - namespace.total_cost }}</p>
 
+
+
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        const map = L.map('map');
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        {% for activity in activities %}
+            {% set coords = activity.Activity_Location.split(',') %}
+
+            L.marker([
+                {{ coords[0] }},
+                {{ coords[1] }}
+            ]).addTo(map)
+            .bindPopup(`
+                <b>{{ activity.Activity_Name }}</b><br>
+                ${{ activity.Activity_Price }}<br>
+                {{ activity.Activity_info }}
+            `);
+        {% endfor %}
+
+        {% if activities %}
+            {% set first_coords = activities[0].Activity_Location.split(',') %}
+
+            map.setView([
+                {{ first_coords[0] }},
+                {{ first_coords[1] }}
+            ], 12);
+        {% else %}
+            map.setView([0, 0], 2);
+        {% endif %}
+    </script>
+
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+
+
+
+
+
+
+
+    <a
+        href="https://www.google.com/maps/dir/?api=1&destination={{ activities[-1].Activity_Location | urlencode }}&waypoints={% for activity in activities[:-1] %}{{ activity.Activity_Location | urlencode }}{% if not loop.last %}%7C{% endif %}{% endfor %}"
+        target="_blank">
+        Export to Google Maps
+    </a>
+    <a
+        href="https://maps.apple.com/directions?source={{ activities[0].Activity_Location | urlencode }}&destination={{ activities[-1].Activity_Location | urlencode }}{% for activity in activities[1:-1] %}&waypoint={{ activity.Activity_Location | urlencode }}{% endfor %}&mode=driving"
+        target="_blank">
+        Apple Maps
+    </a>
+
+
     <h3>Activities:</h3>
 
     {% for activity in activities %}
