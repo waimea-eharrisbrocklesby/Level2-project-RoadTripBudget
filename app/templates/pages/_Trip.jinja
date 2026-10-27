@@ -3,20 +3,22 @@
 
 {% block content %}
 
-<header>
-    <a href="/">Edit</a>
-    <a href="/add_activity/{{ trip.id }}">Add Activity</a>
+<header class="trip-header">
+    <a href="/" class="trip-edit-button">Edit</a>
+    <a href="/add_activity/{{ trip.id }}" class="trip-add-button">Add Activity</a>
 
-    <form method="POST" action="/delete_trip/{{ trip.id }}" style="display:inline;">
-        <button type="submit">Delete Trip</button>
+    <form method="POST" action="/delete_trip/{{ trip.id }}" style="display:inline;" class="trip-delete-form">
+        <button type="submit" class="trip-delete-button">Delete Trip</button>
     </form>
 </header>
 
 <div class="trip-details">
 
-    <h2>{{ trip.Trip_Name }}</h2>
+    <div class="trip-title">
+        <h2>{{ trip.Trip_Name }}</h2>
 
-    <p>Budget: ${{ trip.Trip_Budget }}</p>
+        <p class="trip-budget">Budget: ${{ trip.Trip_Budget }}</p>
+    </div>
 
     {% set namespace = namespace(total_cost=0) %}
 
@@ -24,112 +26,128 @@
         {% set namespace.total_cost = namespace.total_cost + (activity.Activity_Price | float) %}
     {% endfor %}
 
-    <h3>Budget Summary</h3>
+    <div class="budget-summary">
 
-    <div style="font-size: 32px; font-weight: bold; margin: 20px 0;">
-        ${{ namespace.total_cost }} / ${{ trip.Trip_Budget }}
+        <h3>Budget Summary</h3>
+
+        <div class="budget-total" style="font-size: 32px; font-weight: bold; margin: 20px 0;">
+            ${{ namespace.total_cost }} / ${{ trip.Trip_Budget }}
+        </div>
+
+        <p class="total-activity-costs">Total Activity Costs: ${{ namespace.total_cost }}</p>
+
+        <p class="remaining-budget">Remaining Budget: ${{ (trip.Trip_Budget | float) - namespace.total_cost }}</p>
+
     </div>
 
-    <p>Total Activity Costs: ${{ namespace.total_cost }}</p>
-
-    <p>Remaining Budget: ${{ (trip.Trip_Budget | float) - namespace.total_cost }}</p>
 
 
 
 
+    <div class="trip-map">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+        <div id="map"></div>
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+        <script>
+            const map = L.map('map');
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            {% for activity in activities %}
+                {% set coords = activity.Activity_Location.split(',') %}
+
+                L.marker([
+                    {{ coords[0] }},
+                    {{ coords[1] }}
+                ]).addTo(map)
+                .bindPopup(`
+                    <b>{{ activity.Activity_Name }}</b><br>
+                    ${{ activity.Activity_Price }}<br>
+                    {{ activity.Activity_info }}
+                `);
+            {% endfor %}
+
+            {% if activities %}
+                {% set first_coords = activities[0].Activity_Location.split(',') %}
+
+                map.setView([
+                    {{ first_coords[0] }},
+                    {{ first_coords[1] }}
+                ], 12);
+            {% else %}
+                map.setView([0, 0], 2);
+            {% endif %}
+        </script>
+
+        <style>
+            #map {
+                width: 100%;
+                height: 500px;
+            }
+        </style>
+
+    </div>
 
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-    <div id="map"></div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <script>
-        const map = L.map('map');
+    <div class="map-exports">
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+        <a
+            class="google-maps-export"
+            href="https://www.google.com/maps/dir/?api=1&destination={{ activities[-1].Activity_Location | urlencode }}&waypoints={% for activity in activities[:-1] %}{{ activity.Activity_Location | urlencode }}{% if not loop.last %}%7C{% endif %}{% endfor %}"
+            target="_blank">
+            Export to Google Maps
+        </a>
+
+        <a
+            class="apple-maps-export"
+            href="https://maps.apple.com/directions?source={{ activities[0].Activity_Location | urlencode }}&destination={{ activities[-1].Activity_Location | urlencode }}{% for activity in activities[1:-1] %}&waypoint={{ activity.Activity_Location | urlencode }}{% endfor %}&mode=driving"
+            target="_blank">
+            Apple Maps
+        </a>
+
+    </div>
+
+
+    <div class="activities-section">
+
+        <h3>Activities:</h3>
 
         {% for activity in activities %}
-            {% set coords = activity.Activity_Location.split(',') %}
 
-            L.marker([
-                {{ coords[0] }},
-                {{ coords[1] }}
-            ]).addTo(map)
-            .bindPopup(`
-                <b>{{ activity.Activity_Name }}</b><br>
-                ${{ activity.Activity_Price }}<br>
-                {{ activity.Activity_info }}
-            `);
+        <div class="activity">
+
+            <h4>{{ activity.Activity_Name }}</h4>
+
+            <p>Location: {{ activity.Activity_Location }}</p>
+
+            <p>Hours: {{ activity.Activity_Houers }}</p>
+
+            <p>Price: ${{ activity.Activity_Price }}</p>
+
+            <p>{{ activity.Activity_info }}</p>
+
+            <form method="POST" action="/delete_activity/{{ activity.id }}">
+                <button type="submit">Delete Activity</button>
+            </form>
+
+        </div>
+
+        {% else %}
+
+        <p>No activities for this trip.</p>
+
         {% endfor %}
 
-        {% if activities %}
-            {% set first_coords = activities[0].Activity_Location.split(',') %}
-
-            map.setView([
-                {{ first_coords[0] }},
-                {{ first_coords[1] }}
-            ], 12);
-        {% else %}
-            map.setView([0, 0], 2);
-        {% endif %}
-    </script>
-
-    <style>
-        #map {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
-
-
-
-
-
-
-
-    <a
-        href="https://www.google.com/maps/dir/?api=1&destination={{ activities[-1].Activity_Location | urlencode }}&waypoints={% for activity in activities[:-1] %}{{ activity.Activity_Location | urlencode }}{% if not loop.last %}%7C{% endif %}{% endfor %}"
-        target="_blank">
-        Export to Google Maps
-    </a>
-    <a
-        href="https://maps.apple.com/directions?source={{ activities[0].Activity_Location | urlencode }}&destination={{ activities[-1].Activity_Location | urlencode }}{% for activity in activities[1:-1] %}&waypoint={{ activity.Activity_Location | urlencode }}{% endfor %}&mode=driving"
-        target="_blank">
-        Apple Maps
-    </a>
-
-
-    <h3>Activities:</h3>
-
-    {% for activity in activities %}
-
-    <div class="activity">
-
-        <h4>{{ activity.Activity_Name }}</h4>
-
-        <p>Location: {{ activity.Activity_Location }}</p>
-
-        <p>Hours: {{ activity.Activity_Houers }}</p>
-
-        <p>Price: ${{ activity.Activity_Price }}</p>
-
-        <p>{{ activity.Activity_info }}</p>
-
-        <form method="POST" action="/delete_activity/{{ activity.id }}">
-            <button type="submit">Delete Activity</button>
-        </form>
-
     </div>
-
-    {% else %}
-
-    <p>No activities for this trip.</p>
-
-    {% endfor %}
 
 </div>
 

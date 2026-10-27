@@ -124,14 +124,5 @@ main > h2 {
     }
 }
 
-/* Trip Details --------------------------------------------------*/
+/* Trip  --------------------------------------------------*/
 
-#trip-details {
-    display: grid;
-    gap: 2rem;
-    grid-template-rows: auto 1fr;
-    color: var(--text-col);
-    background-color: var(--back-col-panel);
-    border: #0004 1px solid;
-    border-radius: 0.5rem;
-}
