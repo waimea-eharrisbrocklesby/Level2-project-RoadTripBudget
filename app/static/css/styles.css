@@ -104,12 +104,14 @@ main > h2 {
     gap: 2rem;
     grid-template-rows: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     align-items: start;
+    
 
     .trip {
         padding: 1rem;
         box-shadow: 0 0.5rem 1rem #0004;
         border: 1px solid var(--border-col);
         background-color: var(--back-col-panel);
+        position: relative;
 
         header {
             display: flex;
@@ -121,6 +123,34 @@ main > h2 {
             font-size: 0.8rem;
             font-style: italic;
         }
+
+        .view-trip {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .view-trip:hover {
+            transform: translate(5px, -50%);
+        }
+
+        .view-trip::after {
+            content: "View Trip";
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: 0.2s;
+            margin-right: 0.5rem;
+        }
+
     }
 }
 
