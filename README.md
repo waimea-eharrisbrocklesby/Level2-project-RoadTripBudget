@@ -1,4 +1,6 @@
-# Flask Project Template
+# Road Trip Planner
+
+by Ellis Brocklesby
 
 ## Project Description
 
@@ -13,30 +15,18 @@ The app has the following key features:
 
 ## Supporting Documents
 
+*For easier reading, the docs are hosted as a [GH Pages site](https://waimea-eharrisbrocklesby.github.io/Level2-project-RoadTripBudget*
+
 Task Instructions:
 - [Instruction documents](docs/instructions/)
 
 Project Evidence
 - [Sprint 0: Project Requirements](docs/evidence/sprint-0-requirements.md)
 - [Sprint 1: Prototype Development](docs/evidence/sprint-1-prototype.md)
-- [Sprint 2: MVP Development](docs/evidence/sprint-2-mvp.md)
-- [Sprint 3: Final System Development](docs/evidence/sprint-3-final.md)
+- [Sprint 2: Database](docs/evidence/sprint-2-database.md)
+- [Sprint 3: MVP Development](docs/evidence/sprint-3-mvp.md)
+- [Sprint 4: Final System Development](docs/evidence/sprint-4-final.md)
 - [Review: Project Final Review](docs/evidence/system-review.md)
-
-
-## Test Accounts
-
-The following user accounts have been created to demonstrate the features of the system:
-
-Test User 1:
-- Username: xxxxx
-- Password: xxxxx
-
-Test User 2:
-- Username: xxxxx
-- Password: xxxxx
-
-...
 
 
 ## Technologies Used
@@ -46,7 +36,7 @@ Test User 2:
 - [SQLite](https://sqlite.org/) for the database
 - [Jinja2](https://jinja.palletsprojects.com/templates/) for page templating
   
-*For easier reading, the docs are hosted as a [GH Pages site](https://waimea-eharrisbrocklesby.github.io/Level2-project-RoadTripBudget*
+
 
 
 ## Project Structure
